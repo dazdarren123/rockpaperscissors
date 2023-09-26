@@ -5,17 +5,9 @@
 
 
 //to get a randomly generated move from a computer, we need to create a function that selects a number randomly from 1 to three, once it has that number, assigns it to one of three variables, labeled rock, paper or scissor
-function getComputerChoice (){
+function randomNumber (){
     //this returns a random integer between 1-3
      x = Math.floor(Math.random()*3)+1 ;
-     if x === 1 {
-        x = "Rock";
-     } else if x === 2 {
-        x = "Scissors";
-     }
-     else {
-        x = "Paper"
-     }
      console.log()
 }
 getComputerChoice ()
