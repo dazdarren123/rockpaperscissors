@@ -22,7 +22,6 @@ function getComputerChoice (){
   }
   console.log(computerSelection);
 }
-getComputerChoice();
 // ****** COMPUTER SELECTION SECTION END *****
 
 // ****** PLAYER SELECTION SECTION BEGIN *****
@@ -31,7 +30,12 @@ function getPlayerChoice(){
     let playerSelection = prompt("Please enter a move","Rock, Paper, or Scissors.");
     playerSelection = playerSelection.toLowerCase();
     playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1);
-    console.log(playerSelection);
+    if (playerSelection == "Rock"||playerSelection =="Paper"||playerSelection =="Scissors"){
+        console.log(playerSelection);
+        return(playerSelection);
+    } else {
+    console.log("Please enter one of the following moves: Rock, Paper, or Scissors");
+    }
 }
 
 getPlayerChoice();
