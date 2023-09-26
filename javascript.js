@@ -1,6 +1,17 @@
 // creating rock paper scissors involves letting user type in a move and then comparing that move to a randomly generated move by a computer
 
 
+//once we have the user input and the computers move, we can compare the moves by using if, then loops
+function playRound(){
+    let computerSelection = getComputerChoice();
+    let playerSelection = getPlayerChoice();
+    console.log(computerSelection);
+    console.log(playerSelection);
+   }
+
+playRound();
+//we will then print a statement based on who's move wins, who's move loses, and if there is a draw, utilizing the variables associated with each move, concatenating with the result
+
 
 // ****** COMPUTER SELECTION SECTION BEGIN *****
 //to get a randomly generated move from a computer, we need to create a function that selects a number randomly from 1 to three
@@ -20,7 +31,7 @@ function getComputerChoice (){
   } else {
     computerSelection = "Scissors";
   }
-  console.log(computerSelection);
+  return(computerSelection);
 }
 // ****** COMPUTER SELECTION SECTION END *****
 
@@ -31,16 +42,10 @@ function getPlayerChoice(){
     playerSelection = playerSelection.toLowerCase();
     playerSelection = playerSelection.charAt(0).toUpperCase()+playerSelection.slice(1);
     if (playerSelection == "Rock"||playerSelection =="Paper"||playerSelection =="Scissors"){
-        console.log(playerSelection);
         return(playerSelection);
     } else {
-    console.log("Please enter one of the following moves: Rock, Paper, or Scissors");
+    return("Please enter one of the following moves: Rock, Paper, or Scissors");
     }
 }
 
-getPlayerChoice();
-
-//once we have the user input and the computers move, we can compare the moves by using if, then loops
-//we will then print a statement based on who's move wins, who's move loses, and if there is a draw, utilizing the variables associated with each move, concatenating with the result
-
-
+// ****** PLAYER SELECTION SECTION END *****
