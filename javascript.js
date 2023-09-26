@@ -2,15 +2,45 @@
 
 
 //once we have the user input and the computers move, we can compare the moves by using if, then loops
-function playRound(){
-    let computerSelection = getComputerChoice();
-    let playerSelection = getPlayerChoice();
+
+//we will then print a statement based on who's move wins, who's move loses, and if there is a draw, utilizing the variables associated with each move, concatenating with the result
+
+function playRound(computerSelection, playerSelection){
+    computerSelection = getComputerChoice();
+    playerSelection = getPlayerChoice();
     console.log(computerSelection);
     console.log(playerSelection);
+    // if computer = rock and player = rock, draw
+    if (computerSelection === "Rock" && playerSelection === "Rock"){
+        return("Draw");
+    // if computer = rock and player = paper, player wins
+    } else if (computerSelection === "Rock" && playerSelection === "Paper"){
+        return("You Win! "+playerSelection + " Beats "+ computerSelection);
+    // if computer = rock and player = scissors, computer wins  
+    } else if (computerSelection === "Rock" && playerSelection === "Scissors"){
+        return("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
+    // if computer = paper and player = paper, draw
+    } else if (computerSelection === "Paper" && playerSelection === "Paper"){
+        return("Draw");
+    // if computer = paper and player = scissors, player wins
+    } else if (computerSelection === "Paper" && playerSelection === "Scissors"){
+        return("You Win! "+playerSelection + " Beats  "+ computerSelection)
+    // if computer = paper and player = rock, computer wins
+    } else if (computerSelection === "Paper" && playerSelection === "Rock"){
+        return("You Lose! "+playerSelection + " Loses to  "+ computerSelection)
+    // if computer = scissors and player = paper, computer wins
+    } else if (computerSelection === "Scissors" && playerSelection === "Paper"){
+        return("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
+    // if computer = scissors and player = scissors, draw
+    } else if (computerSelection === "Scissors" && playerSelection === "Scissors"){
+        return("Draw")
+    // if computer = scissors and player = rock, player wins
+    } else if (computerSelection === "Scissors" && playerSelection === "Rock"){
+        return("You Win! "+playerSelection + " Beats  "+ computerSelection)
+    }
    }
+console.log(playRound())
 
-playRound();
-//we will then print a statement based on who's move wins, who's move loses, and if there is a draw, utilizing the variables associated with each move, concatenating with the result
 
 
 // ****** COMPUTER SELECTION SECTION BEGIN *****
@@ -21,7 +51,7 @@ function randomNumber (){
      return x;
      
 }
-// once it has that number, assigns it to one of three variables, labeled rock, paper or scissor
+// once it has that number, assigns it to one of three variables, labeled rock, paper or scissors
 function getComputerChoice (){
   let computerSelection = randomNumber();
   if (computerSelection === 1){
