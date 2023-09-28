@@ -54,6 +54,13 @@ function game (){
         console.log(computerScore);
         matchCount++;
     }
+    if (playerScore > computerScore){
+        return( "Player wins! The results are player: " + playerScore + " and computer: "+ computerScore);
+    } else if (playerScore < computerScore){
+        return( "Computer wins! The results are player: " + playerScore + " and computer: "+ computerScore);
+    } else {
+        return ("Draw! The results are player: " +playerScore + " and computer: "+ computerScore);
+    }
 }
 
 console.log(game())
