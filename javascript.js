@@ -8,39 +8,55 @@
 function playRound(computerSelection, playerSelection){
     computerSelection = getComputerChoice();
     playerSelection = getPlayerChoice();
-    console.log(computerSelection);
-    console.log(playerSelection);
-    // if computer = rock and player = rock, draw
+
     if (computerSelection === "Rock" && playerSelection === "Rock"){
         return("Draw");
     // if computer = rock and player = paper, player wins
     } else if (computerSelection === "Rock" && playerSelection === "Paper"){
+        playerScore++;
         return("You Win! "+playerSelection + " Beats "+ computerSelection);
     // if computer = rock and player = scissors, computer wins  
     } else if (computerSelection === "Rock" && playerSelection === "Scissors"){
+        computerScore++;
         return("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
     // if computer = paper and player = paper, draw
     } else if (computerSelection === "Paper" && playerSelection === "Paper"){
         return("Draw");
     // if computer = paper and player = scissors, player wins
     } else if (computerSelection === "Paper" && playerSelection === "Scissors"){
+        playerScore++;
         return("You Win! "+playerSelection + " Beats  "+ computerSelection)
     // if computer = paper and player = rock, computer wins
     } else if (computerSelection === "Paper" && playerSelection === "Rock"){
+        computerScore++;
         return("You Lose! "+playerSelection + " Loses to  "+ computerSelection)
     // if computer = scissors and player = paper, computer wins
     } else if (computerSelection === "Scissors" && playerSelection === "Paper"){
+        computerScore++;
         return("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
     // if computer = scissors and player = scissors, draw
     } else if (computerSelection === "Scissors" && playerSelection === "Scissors"){
         return("Draw")
     // if computer = scissors and player = rock, player wins
     } else if (computerSelection === "Scissors" && playerSelection === "Rock"){
+        playerScore++;
         return("You Win! "+playerSelection + " Beats  "+ computerSelection)
     }
    }
-console.log(playRound())
 
+function game (){
+    playerScore = 0;
+    computerScore = 0;
+    matchCount = 0;
+    while (matchCount < 5) {
+        console.log(playRound());
+        console.log(playerScore);
+        console.log(computerScore);
+        matchCount++;
+    }
+}
+
+console.log(game())
 
 
 // ****** COMPUTER SELECTION SECTION BEGIN *****
@@ -79,3 +95,12 @@ function getPlayerChoice(){
 }
 
 // ****** PLAYER SELECTION SECTION END *****
+
+// create a new function that plays a 5 round game that keep scores and reports a winner or loser using the previous playRound function
+// the function should display the results of each round, and the winner of the entire game at the end
+// i need a function that keeps track of the results of each time the function playRound is called
+// i need to set a variable for player score
+// i need to set a variable for computer score
+// if in the function Playround, the computer wins, i need to increment and store the variable for computer score
+// if in the function playround, the player wins, i need to increment and store the variable for player score
+// i need a function that prints the total score and results at the end of the game
