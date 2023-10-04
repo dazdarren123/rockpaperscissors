@@ -1,13 +1,16 @@
-// creating rock paper scissors involves letting user type in a move and then comparing that move to a randomly generated move by a computer
+var rock = document.querySelector('#rock')
+rock.addEventListener('click',rockChoice)
 
+function rockChoice (){
+    computerScore = 0
+    playerScore = 0
+    console.log(playRound(0,"Rock"))
+}
 
-//once we have the user input and the computers move, we can compare the moves by using if, then loops
-
-//we will then print a statement based on who's move wins, who's move loses, and if there is a draw, utilizing the variables associated with each move, concatenating with the result
 
 function playRound(computerSelection, playerSelection){
     computerSelection = getComputerChoice();
-    playerSelection = getPlayerChoice();
+
 
     if (computerSelection === "Rock" && playerSelection === "Rock"){
         return("Draw");
@@ -44,26 +47,26 @@ function playRound(computerSelection, playerSelection){
     }
    }
 
-function game (){
-    playerScore = 0;
-    computerScore = 0;
-    matchCount = 0;
-    while (matchCount < 5) {
-        console.log(playRound());
-        console.log(playerScore);
-        console.log(computerScore);
-        matchCount++;
-    }
-    if (playerScore > computerScore){
-        return( "Player wins! The results are player: " + playerScore + " and computer: "+ computerScore);
-    } else if (playerScore < computerScore){
-        return( "Computer wins! The results are player: " + playerScore + " and computer: "+ computerScore);
-    } else {
-        return ("Draw! The results are player: " +playerScore + " and computer: "+ computerScore);
-    }
-}
+// function game (){
+//     playerScore = 0;
+//     computerScore = 0;
+//     matchCount = 0;
+//     while (matchCount < 5) {
+//         console.log(playRound());
+//         console.log(playerScore);
+//         console.log(computerScore);
+//         matchCount++;
+//     }
+//     if (playerScore > computerScore){
+//         return( "Player wins! The results are player: " + playerScore + " and computer: "+ computerScore);
+//     } else if (playerScore < computerScore){
+//         return( "Computer wins! The results are player: " + playerScore + " and computer: "+ computerScore);
+//     } else {
+//         return ("Draw! The results are player: " +playerScore + " and computer: "+ computerScore);
+//     }
+// }
 
-console.log(game())
+// console.log(game())
 
 
 // ****** COMPUTER SELECTION SECTION BEGIN *****
