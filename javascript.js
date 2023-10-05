@@ -37,8 +37,6 @@ function scissorsChoice (){
 }
 
 
-
-
 function playRound(computerSelection, playerSelection){
     computerSelection = getComputerChoice();
 
@@ -84,8 +82,14 @@ function playRound(computerSelection, playerSelection){
         results.textContent = ("You Win! "+playerSelection + " Beats  "+ computerSelection)
         scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     }
+    if (playerScore === 5) {
+        alert("Player wins")
+    } else if (computerScore === 5){
+        alert ("Computer wins")
+    } 
 
    }
+
 
 // function game (){
 //     playerScore = 0;
