@@ -1,50 +1,90 @@
-var rock = document.querySelector('#rock')
-rock.addEventListener('click',rockChoice)
+
+// DOM manipulation
+const results = document.querySelector('#results');
+const scoreCounter = document.querySelector('#score')
+const resultDisplay = document.querySelector('#winner')
+
+var rock = document.querySelector('#rock');
+rock.addEventListener('click',rockChoice);
+
+var paper = document.querySelector('#paper');
+paper.addEventListener('click',paperChoice);
+
+var scissors = document.querySelector('#scissors');
+scissors.addEventListener('click',scissorsChoice);
+
+let playerScore = 0;
+let computerScore = 0;
+//Adding functionality to buttons and creating listeners
+
 
 function rockChoice (){
-    computerScore = 0
-    playerScore = 0
-    console.log(playRound(0,"Rock"))
+  playRound(0,"Rock")
+  console.log(playerScore)
+  console.log(computerScore)
 }
+
+function paperChoice (){
+    playRound(0,"Paper")
+    console.log(playerScore)
+    console.log(computerScore)
+}
+
+function scissorsChoice (){
+    playRound(0,"Scissors")
+    console.log(playerScore)
+    console.log(computerScore)
+}
+
+
 
 
 function playRound(computerSelection, playerSelection){
     computerSelection = getComputerChoice();
 
-
     if (computerSelection === "Rock" && playerSelection === "Rock"){
-        return("Draw");
+        results.textContent = ("Draw");
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = rock and player = paper, player wins
     } else if (computerSelection === "Rock" && playerSelection === "Paper"){
         playerScore++;
-        return("You Win! "+playerSelection + " Beats "+ computerSelection);
+        results.textContent = ("You Win! "+playerSelection + " Beats "+ computerSelection);
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = rock and player = scissors, computer wins  
     } else if (computerSelection === "Rock" && playerSelection === "Scissors"){
         computerScore++;
-        return("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
+        results.textContent = ("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = paper and player = paper, draw
     } else if (computerSelection === "Paper" && playerSelection === "Paper"){
-        return("Draw");
+        results.textContent = ("Draw");
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = paper and player = scissors, player wins
     } else if (computerSelection === "Paper" && playerSelection === "Scissors"){
         playerScore++;
-        return("You Win! "+playerSelection + " Beats  "+ computerSelection)
+        results.textContent = ("You Win! "+playerSelection + " Beats  "+ computerSelection)
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = paper and player = rock, computer wins
     } else if (computerSelection === "Paper" && playerSelection === "Rock"){
         computerScore++;
-        return("You Lose! "+playerSelection + " Loses to  "+ computerSelection)
+        results.textContent = ("You Lose! "+playerSelection + " Loses to  "+ computerSelection)
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = scissors and player = paper, computer wins
     } else if (computerSelection === "Scissors" && playerSelection === "Paper"){
         computerScore++;
-        return("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
+        results.textContent = ("You Lose! "+playerSelection + " Loses to  "+ computerSelection);
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = scissors and player = scissors, draw
     } else if (computerSelection === "Scissors" && playerSelection === "Scissors"){
-        return("Draw")
+        results.textContent = ("Draw")
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     // if computer = scissors and player = rock, player wins
     } else if (computerSelection === "Scissors" && playerSelection === "Rock"){
         playerScore++;
-        return("You Win! "+playerSelection + " Beats  "+ computerSelection)
+        results.textContent = ("You Win! "+playerSelection + " Beats  "+ computerSelection)
+        scoreCounter.textContent = ("PlayerScore: " + playerScore + " Computer Score: "+ computerScore)
     }
+
    }
 
 // function game (){
